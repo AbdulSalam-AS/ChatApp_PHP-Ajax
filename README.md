@@ -1,3 +1,5 @@
+Create DataBase Name chat.
+create Table Schemas for users and messages
 ```mermaid
 erDiagram
     USERS {
@@ -10,3 +12,12 @@ erDiagram
         string img
         string status
     }
+
+    MESSAGES {
+        int msg_id PK "Auto Increment"
+        int incoming_msg_id FK
+        int outgoing_msg_id FK
+        string msg
+    }
+
+    USERS ||--o{ MESSAGES : "sends/receives"
